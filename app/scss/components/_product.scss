@@ -1,0 +1,62 @@
+@use "../abstracts/" as *;
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+
+  @include mobile {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+.product-item {
+    // &.is-flipped {
+    //     transform: rotateY(180deg);
+    //   }
+    //   transition: transform 1s;
+    //   transform-style: preserve-3d;
+
+      // position: relative;
+
+      &__face {
+        // -webkit-backface-visibility: hidden;
+        // backface-visibility: hidden;
+        // position: absolute;
+        // width: 100%;
+        // height: 100%;
+   
+
+        border-radius: $border-radius;
+        transition: box-shadow 0.5s ease;
+        &:hover {
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+      }
+  .product-card {
+    padding: 3rem;
+ 
+
+    &__img {
+      position: relative;
+      .btn-wrapper {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.8s ease;
+      }
+    }
+
+    &:hover .btn-wrapper {
+      opacity: 1;
+    }
+
+    &__price,
+    &__name {
+      font-size: 2rem;
+      margin-top: 1rem;
+      text-align: center;
+    }
+  } 
+}
+
